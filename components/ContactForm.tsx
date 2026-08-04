@@ -4,6 +4,39 @@ import { useRef, useState, type DragEvent } from "react";
 
 const MAX_FILES = 5;
 const MAX_FILE_BYTES = 10 * 1024 * 1024;
+// Photos are downscaled in the browser before upload: keeps the request well
+// under serverless body limits (Vercel: ~4.5 MB) and email attachment caps,
+// and "is this watch interesting?" snapshots don't need print resolution.
+const COMPRESS_ABOVE_BYTES = 600 * 1024;
+const MAX_DIMENSION = 1600;
+const JPEG_QUALITY = 0.72;
+
+async function compressImage(file: File): Promise<File> {
+  if (!file.type.startsWith("image/") || file.size < COMPRESS_ABOVE_BYTES) {
+    return file;
+  }
+  try {
+    const bitmap = await createImageBitmap(file);
+    const scale = Math.min(1, MAX_DIMENSION / Math.max(bitmap.width, bitmap.height));
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.max(1, Math.round(bitmap.width * scale));
+    canvas.height = Math.max(1, Math.round(bitmap.height * scale));
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return file;
+    ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+    bitmap.close();
+    const blob = await new Promise<Blob | null>((resolve) =>
+      canvas.toBlob(resolve, "image/jpeg", JPEG_QUALITY)
+    );
+    if (!blob || blob.size >= file.size) return file;
+    return new File([blob], file.name.replace(/\.[^.]+$/, "") + ".jpg", {
+      type: "image/jpeg",
+    });
+  } catch {
+    // Format the browser can't decode (e.g. HEIC outside Safari) — send as-is.
+    return file;
+  }
+}
 
 export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -69,7 +102,8 @@ export default function ContactForm() {
     payload.set("name", name);
     payload.set("email", email);
     payload.set("message", message);
-    files.forEach((f) => payload.append("files", f));
+    const compressed = await Promise.all(files.map(compressImage));
+    compressed.forEach((f) => payload.append("files", f));
 
     try {
       const res = await fetch("/api/contact", { method: "POST", body: payload });

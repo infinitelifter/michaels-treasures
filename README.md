@@ -20,8 +20,18 @@ npm run build     # production build
 2. **Business details** — replace the `[year]`, `IČO [number]` and
    `[registered address]` placeholders in `lib/site.ts`. They flow into the
    page, the JSON-LD and the footer automatically.
-3. **Contact form delivery** — `app/api/contact/route.ts` currently only
-   logs enquiries. Hook it up to Resend/SMTP (TODO comment marks the spot).
+3. **Contact form delivery (Resend)** — the form emails enquiries (with
+   photo attachments) via Resend from `app/api/contact/route.ts`. Photos are
+   downscaled in the browser before upload, so requests stay under Vercel's
+   ~4.5 MB body limit. To activate:
+   1. Create a Resend account under `michael@praguevintagewatches.com`.
+   2. In Resend, add the domain `praguevintagewatches.com` and set the DNS
+      records it shows you; wait for it to verify.
+   3. Create an API key and set it as `RESEND_API_KEY` (see `.env.example`)
+      in Vercel → Project → Settings → Environment Variables (and in
+      `.env.local` for local testing).
+   Until the key is set, submissions return an error and are logged
+   server-side, not delivered.
 4. **Domain** — the canonical URL is `https://praguevintagewatches.com` in
    `lib/site.ts`; change it there if the domain differs.
 
