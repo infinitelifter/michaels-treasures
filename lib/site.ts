@@ -9,69 +9,100 @@ export const site = {
   legalName: "Michal Sopoliga",
   tagline: "Exceptional Vintage Watches",
   description:
-    "Exceptional vintage watches, personally selected and photographed in Prague. Viewings by appointment. Worldwide insured shipping.",
+    "Exceptional vintage watches from the 1940s–1950s, personally selected and photographed in Prague. Viewings by appointment. Worldwide insured shipping.",
   url: "https://praguevintagewatches.com",
-  email: "michael@praguevintagewatches.com",
+  email: "michael.treasures1@gmail.com",
   instagram: "https://instagram.com/michaels.treasures",
   instagramHandle: "@michaels.treasures",
   city: "Prague",
   country: "Czechia",
   countryCode: "CZ",
-  // TODO: replace the placeholders below with the real registered details
-  ico: "IČO [number]",
-  registeredAddress: "[registered address]",
-  dealingSince: "[year]",
+  ico: "22533834",
+  streetAddress: "Slavíkova 1379/20",
+  postalCode: "130 00",
+  curatedEra: "1940s–1950s",
 } as const;
 
 export const faq = [
   {
-    question: "Can I see the watch in person?",
+    question: "Are the watches authentic?",
     answer:
-      "Yes. Viewings take place in Prague by appointment, usually within a day or two of asking.",
+      "I carefully select watches for their originality, condition and character. If a watch has any known replaced parts or other deviations from originality, they are always clearly disclosed before a sale.",
   },
   {
-    question: "Do you ship outside the EU?",
+    question: "Are the watches serviced?",
     answer:
-      "Yes. Every watch is shipped fully insured, worldwide, with tracking sent before it leaves.",
+      "Every watch is inspected and tested for accuracy before being offered. Where servicing is required or recommended, it can be carried out prior to delivery by an experienced watchmaker.",
   },
   {
-    question: "Are the dials original?",
+    question: "Do you buy vintage watches?",
     answer:
-      "Unless stated otherwise, yes. Redials, service dials and replaced hands are always disclosed in writing, before anything is agreed.",
+      "Yes. I'm always interested in purchasing quality vintage watches or entire collections. Feel free to get in touch if you're considering selling.",
   },
   {
     question: "How do I pay?",
     answer:
-      "Bank transfer for most sales, or cash in person in Prague. An invoice with the registered company details is issued for every watch.",
+      "Bank transfer is preferred for most transactions, while cash payment is possible for in-person meetings in Prague. An invoice is issued for every purchase.",
   },
 ] as const;
 
 /**
- * Photography slots. Replace the placeholder SVGs with real photographs by
- * dropping JPEGs into /public/images and updating the paths (or keeping the
- * same file names). Alt text is written for both accessibility and search.
+ * Photography slots. To swap a photo, drop the new JPEG over the same file
+ * name in /public/images (or update the path + alt text here).
  */
 export const photos = {
   hero: {
-    src: "/images/placeholder-wide.svg",
-    alt: "Vintage watch worn on the wrist, photographed in daylight in Prague",
+    src: "/images/hero.jpg",
+    alt: "Vintage military pilot's watch with black dial and luminous numerals on a leather strap",
   },
   selection: {
-    src: "/images/placeholder-tall.svg",
-    alt: "Latest vintage watch arrival at Michael's Treasures, Prague",
+    src: "/images/selection.jpg",
+    alt: "Vintage open-face pocket watch with silver dial on a dark background",
   },
   about: {
-    src: "/images/placeholder-tall.svg",
-    alt: "Michal Sopoliga at his bench inspecting a vintage watch",
+    src: "/images/about.jpg",
+    alt: "Michal Sopoliga, vintage watch dealer, wearing a vintage watch in Prague",
   },
   collection: [
-    { src: "/images/placeholder-portrait.svg", alt: "Vintage watch dial close-up" },
-    { src: "/images/placeholder-portrait.svg", alt: "Vintage watch wrist shot in daylight" },
-    { src: "/images/placeholder-portrait.svg", alt: "Vintage watch caseback engraving" },
-    { src: "/images/placeholder-portrait.svg", alt: "Vintage watch resting on a desk" },
-    { src: "/images/placeholder-portrait.svg", alt: "Vintage watch dial patina detail" },
-    { src: "/images/placeholder-portrait.svg", alt: "Vintage watch on the wrist, natural light" },
-    { src: "/images/placeholder-portrait.svg", alt: "Vintage watch lug and case detail" },
-    { src: "/images/placeholder-portrait.svg", alt: "Vintage mechanical watch movement" },
+    {
+      src: "/images/slide-1.jpg",
+      alt: "Vintage chronograph with two-tone cream dial on a tan crocodile strap",
+    },
+    {
+      src: "/images/slide-2.jpg",
+      alt: "Vintage Omega with tropical brown dial on a tan leather strap",
+    },
+    {
+      src: "/images/slide-3.jpg",
+      alt: "Gold Omega dress watch with honeycomb dial on a black strap",
+    },
+    {
+      src: "/images/slide-4.jpg",
+      alt: "Vintage TAG Heuer diver with cream lume dial on a steel bracelet",
+    },
+    {
+      src: "/images/slide-5.jpg",
+      alt: "Vintage watch with two-tone copper dial resting on a book page",
+    },
+    {
+      src: "/images/slide-6.jpg",
+      alt: "Vintage Revue with silver dial and small seconds on a grey strap",
+    },
+    {
+      src: "/images/slide-7.jpg",
+      alt: "Vintage skin diver with orange accents on a black tropic strap",
+    },
+    {
+      src: "/images/slide-8.jpg",
+      alt: "Universal Genève automatic with silver dial on a navy stitched strap",
+    },
+    {
+      src: "/images/slide-9.jpg",
+      alt: "Cartier with white Roman-numeral dial on a burgundy leather strap",
+    },
+    {
+      src: "/images/slide-10.jpg",
+      alt: "Vintage rectangular tank watch on an oxblood leather strap",
+    },
   ],
 } as const;

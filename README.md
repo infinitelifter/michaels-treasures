@@ -12,15 +12,20 @@ npm run dev       # http://localhost:3000
 npm run build     # production build
 ```
 
+## Content
+
+- **Photographs** live in `public/images/` (`hero.jpg`, `slide-1.jpg` …
+  `slide-10.jpg`, `selection.jpg`, `about.jpg`). To swap one, drop the new
+  JPEG over the same file name (resize to ≤ ~1300px wide for slides first)
+  and update the alt text in `lib/site.ts` if the watch changed.
+- **Business details, FAQ and contact info** are centralised in
+  `lib/site.ts` and flow into the page, JSON-LD, footer and metadata.
+- **Legal pages**: `/privacy` and `/terms` (`app/privacy/page.tsx`,
+  `app/terms/page.tsx`), effective 6 August 2026.
+
 ## Before going live
 
-1. **Photographs** — drop real JPEGs into `public/images/` and update the
-   paths + alt text in `lib/site.ts` (`photos`). Placeholders are the dark
-   "M" SVGs.
-2. **Business details** — replace the `[year]`, `IČO [number]` and
-   `[registered address]` placeholders in `lib/site.ts`. They flow into the
-   page, the JSON-LD and the footer automatically.
-3. **Contact form delivery (Resend)** — the form emails enquiries (with
+1. **Contact form delivery (Resend)** — the form emails enquiries (with
    photo attachments) via Resend from `app/api/contact/route.ts`. Photos are
    downscaled in the browser before upload, so requests stay under Vercel's
    ~4.5 MB body limit. To activate:

@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 const LINKS = [
   { href: "#home", label: "Home" },
   { href: "#collection", label: "Collection" },
-  { href: "#selection", label: "Current Selection" },
+  { href: "#selection", label: "Selection" },
   { href: "#about", label: "About" },
 ] as const;
 
@@ -95,10 +95,10 @@ export default function Nav() {
           </a>
           <div className="nav__right">
             <a className="nav__link" href="#contact">
-              Contact
+              Get in Touch
             </a>
             <a
-              className="nav__link"
+              className="nav__link nav__link--framed"
               href={site.instagram}
               target="_blank"
               rel="noopener noreferrer"
@@ -126,7 +126,7 @@ export default function Nav() {
           </button>
         </div>
         <div className="menu__body">
-          {[...LINKS, { href: "#contact", label: "Contact" }].map((l, i) => (
+          {[...LINKS, { href: "#contact", label: "Get in Touch" }].map((l, i) => (
             <a
               key={l.href}
               className="menu__link"

@@ -32,6 +32,9 @@ export default function Home() {
             <span className="hero__sub-rule" aria-hidden="true" />
             <span className="hero__sub-text">{site.tagline}</span>
           </p>
+          <a className="hero__cta" href="#selection">
+            See the selection
+          </a>
         </div>
         <span className="hero__scroll-rule" aria-hidden="true" />
       </header>
@@ -43,32 +46,28 @@ export default function Home() {
               <div className="trust__cell">
                 <dt className="eyebrow">Based in</dt>
                 <dd className="trust__value" style={{ margin: 0 }}>
-                  {site.city}, {site.country}
+                  {site.city}
                 </dd>
               </div>
               <div className="trust__cell">
-                <dt className="eyebrow">Dealing since</dt>
-                <dd className="trust__value trust__value--mono" style={{ margin: 0 }}>
-                  {site.dealingSince}
+                <dt className="eyebrow">Curated era</dt>
+                <dd className="trust__value" style={{ margin: 0 }}>
+                  {site.curatedEra}
                 </dd>
               </div>
               <div className="trust__cell">
-                <dt className="eyebrow">Registered</dt>
-                <dd className="trust__value trust__value--mono" style={{ margin: 0 }}>
-                  {site.ico}
+                <dt className="eyebrow">Focus</dt>
+                <dd className="trust__value" style={{ margin: 0 }}>
+                  Originality &amp; Condition
                 </dd>
               </div>
               <div className="trust__cell">
-                <dt className="eyebrow">Viewings</dt>
+                <dt className="eyebrow">Viewing</dt>
                 <dd className="trust__value" style={{ margin: 0 }}>
                   By appointment
                 </dd>
               </div>
             </dl>
-            <p className="trust__note">
-              Every watch is personally selected, inspected, and photographed by
-              Michal. Nothing is listed that I would not wear myself.
-            </p>
           </div>
         </Reveal>
 
@@ -91,11 +90,9 @@ export default function Home() {
                 The collection changes constantly.
               </h2>
               <p className="body-copy selection__body">
-                What is available today may be gone tomorrow. Rather than
-                maintain a catalogue that is always slightly out of date, I show
-                every piece on Instagram as it arrives — photographed on the
-                wrist, in daylight, exactly as you would see it in person. New
-                arrivals are posted weekly.
+                Rather than maintaining a catalogue that is constantly becoming
+                outdated, every new arrival is first shared on Instagram. New
+                pieces are typically added weekly.
               </p>
               <a
                 className="selection__cta"
@@ -122,32 +119,42 @@ export default function Home() {
 
         <section className="how" aria-label="How it works">
           <div className="container">
-            <Reveal>
-              <p className="eyebrow how__eyebrow" style={{ marginTop: 0 }}>
+            <Reveal className="how__head">
+              <p className="eyebrow" style={{ margin: 0 }}>
                 How it works
+              </p>
+              <p className="body-copy how__intro">
+                Honest advice, transparent communication, and no pressure.
+                Every enquiry is handled personally from the first message to
+                the final delivery.
               </p>
             </Reveal>
             <Reveal className="how__step">
               <span className="how__num">01</span>
               <h3 className="how__name">Enquire</h3>
               <p className="body-copy how__body">
-                Message me on Instagram or through the form below. Tell me what
-                you are looking for, or what you have.
+                Reach out via Instagram or the contact form. Whether a watch
+                from my current selection has caught your attention, you&apos;re
+                looking for a particular model, or you&apos;re considering
+                selling a vintage watch, I&apos;ll be happy to help.
               </p>
             </Reveal>
             <Reveal className="how__step">
               <span className="how__num">02</span>
-              <h3 className="how__name">See it</h3>
+              <h3 className="how__name">Personal Consultation</h3>
               <p className="body-copy how__body">
-                Additional photographs, video, movement shots — whatever you
-                need. Viewings in Prague by appointment.
+                Receive additional photographs, movement shots, videos, or any
+                other details you may need. If required, the watch can also be
+                serviced before delivery. Viewings in Prague are available by
+                appointment.
               </p>
             </Reveal>
             <Reveal className="how__step">
               <span className="how__num">03</span>
-              <h3 className="how__name">Receive it</h3>
+              <h3 className="how__name">Enjoy Your Watch</h3>
               <p className="body-copy how__body">
-                Insured shipping across the EU and worldwide, or handed over in
+                Once everything is confirmed, your watch will be carefully
+                packaged and shipped fully insured worldwide, or handed over in
                 person in Prague.
               </p>
             </Reveal>
@@ -158,28 +165,30 @@ export default function Home() {
           <div className="container about__inner">
             <Reveal className="about__copy">
               <p className="eyebrow" style={{ margin: 0 }}>
-                About
+                About me
               </p>
               <h2 className="serif-h about__title">
-                I have been drawn to old watches for as long as I can remember.
+                Vintage watches have never been just about telling the time.
               </h2>
               <p className="body-copy about__body">
-                Not for the labels, and not as investments — for the small,
-                human details. The patina a dial takes on over sixty years.
-                Hands cut by someone whose name we will never know. A movement
-                that has kept running through several lifetimes and simply
-                carries on.
+                For me, they represent a broader appreciation for things that
+                are made well and built to last. Whether it&apos;s classic
+                tailoring, fine leather goods or a watch from the 1940s, they
+                all have something in common: craftsmanship, character and
+                timeless design.
               </p>
               <p className="body-copy about__body">
-                I look for pieces that have been left honest: original dials,
-                unpolished cases, service histories that make sense. Every watch
-                is inspected before it is offered, and photographed as it
-                actually is — on a wrist, in daylight, flaws included.
+                I don&apos;t believe the best watches are necessarily the
+                rarest or the most expensive. I look for pieces with honest
+                condition, beautiful proportions and originality, simply the
+                watches with character that deserve to be worn, not locked away
+                in a safe.
               </p>
               <p className="body-copy about__body">
-                {site.name} is a vintage watch dealer based in {site.city},{" "}
-                {site.country}, run by {site.legalName}. I work from the city,
-                and I am always happy to meet in person.
+                Every watch offered through {site.name} is personally selected,
+                carefully inspected and presented exactly as it is. I believe a
+                great vintage watch deserves to be worn and appreciated,
+                becoming part of its owner&apos;s story.
               </p>
               <p className="about__sig">— {site.legalName}</p>
             </Reveal>
@@ -218,13 +227,17 @@ export default function Home() {
           <div className="container">
             <Reveal>
               <h2 className="serif-h contact__title">
-                Looking for something particular? Or thinking of selling?
+                Let&apos;s Start the Conversation
               </h2>
             </Reveal>
             <Reveal>
+              <p className="body-copy contact__lede">
+                Whether you&apos;re searching for a particular watch, have a
+                question about a piece, or are considering selling from your
+                collection, I&apos;d be pleased to hear from you.
+              </p>
               <p className="contact__sub" style={{ marginBottom: 0 }}>
-                I read and answer every message personally — usually within 24
-                hours.
+                Every enquiry is answered personally, usually within 24 hours.
               </p>
             </Reveal>
             <div className="contact__cols">
@@ -265,14 +278,14 @@ export default function Home() {
             <span className="footer__caps">© 2026 {site.legalName}</span>
           </div>
           <nav className="footer__col footer__col--legal" aria-label="Legal">
-            <a href="#cookies">Cookies</a>
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#terms">Terms &amp; Conditions</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms &amp; Conditions</a>
           </nav>
           <div className="footer__col">
-            <span className="footer__caps">{site.ico}</span>
-            <span className="footer__caps">
-              {site.registeredAddress}, {site.city}, {site.country}
+            <span>{site.legalName}</span>
+            <span className="footer__caps">IČO: {site.ico}</span>
+            <span>
+              {site.streetAddress}, {site.postalCode}, {site.city}
             </span>
             <a href={`mailto:${site.email}`}>{site.email}</a>
             <a
