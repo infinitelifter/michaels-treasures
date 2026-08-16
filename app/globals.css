@@ -582,9 +582,9 @@ img {
   gap: 24px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  /* line the first slide up with the section label: container margin + its inner padding */
-  padding: 0 calc(max(0px, (100vw - 1240px) / 2) + clamp(24px, 4vw, 40px));
-  scroll-padding-left: calc(max(0px, (100vw - 1240px) / 2) + clamp(24px, 4vw, 40px));
+  /* full-bleed track: slides start at the page gutter, not the content column */
+  padding: 0 clamp(24px, 4vw, 40px);
+  scroll-padding-left: clamp(24px, 4vw, 40px);
   scrollbar-width: none;
 }
 .car::-webkit-scrollbar {
