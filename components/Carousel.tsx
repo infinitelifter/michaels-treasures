@@ -8,16 +8,58 @@ const GAP = 24;
 const AUTO_ADVANCE_SECONDS = 4;
 const MANUAL_HOLD_MS = 9000;
 
+const SLIDE_MS = 700;
+const easeInOutCubic = (t: number) =>
+  t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
 export default function Carousel() {
   const trackRef = useRef<HTMLDivElement>(null);
   const holdUntil = useRef(0);
   const hover = useRef(false);
+  const animId = useRef<number | null>(null);
   const [counter, setCounter] = useState(`01 / ${String(photos.collection.length).padStart(2, "0")}`);
 
   const step = () => {
     const track = trackRef.current;
     const slide = track?.querySelector<HTMLElement>("[data-slide]");
     return slide ? slide.getBoundingClientRect().width + GAP : 424;
+  };
+
+  // rAF-driven glide: native smooth scrollTo fights `scroll-snap: mandatory`
+  // (visible stutter), so snapping is paused for the duration of the tween.
+  const cancelGlide = () => {
+    const track = trackRef.current;
+    if (animId.current !== null) {
+      cancelAnimationFrame(animId.current);
+      animId.current = null;
+      if (track) track.style.scrollSnapType = "";
+    }
+  };
+
+  const glideTo = (target: number) => {
+    const track = trackRef.current;
+    if (!track) return;
+    cancelGlide();
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      track.scrollLeft = target;
+      return;
+    }
+    const start = track.scrollLeft;
+    const dist = target - start;
+    if (Math.abs(dist) < 1) return;
+    const t0 = performance.now();
+    track.style.scrollSnapType = "none";
+    const frame = (now: number) => {
+      const p = Math.min(1, (now - t0) / SLIDE_MS);
+      track.scrollLeft = start + dist * easeInOutCubic(p);
+      if (p < 1) {
+        animId.current = requestAnimationFrame(frame);
+      } else {
+        animId.current = null;
+        track.style.scrollSnapType = "";
+      }
+    };
+    animId.current = requestAnimationFrame(frame);
   };
 
   const go = (dir: 1 | -1, manual: boolean) => {
@@ -29,7 +71,7 @@ export default function Carousel() {
     let x = Math.round(track.scrollLeft / s) * s + dir * s;
     if (x > max + s / 2) x = 0; // past the end → loop to start
     else if (x < -s / 2) x = max; // before the start → loop to end
-    track.scrollTo({ left: Math.max(0, Math.min(x, max)), behavior: "smooth" });
+    glideTo(Math.max(0, Math.min(x, max)));
   };
 
   useEffect(() => {
@@ -45,6 +87,7 @@ export default function Carousel() {
 
     const hold = () => {
       holdUntil.current = Date.now() + MANUAL_HOLD_MS;
+      cancelGlide(); // hand control back to the user's own scrolling
     };
     const onEnter = () => {
       hover.current = true;
@@ -60,6 +103,8 @@ export default function Carousel() {
     track.addEventListener("wheel", hold, { passive: true });
     track.addEventListener("touchstart", hold, { passive: true });
     track.addEventListener("scroll", onScroll, { passive: true });
+
+    track.scrollLeft = 0; // defeat browser scroll restoration on reload
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let timer: ReturnType<typeof setInterval> | undefined;
@@ -82,6 +127,7 @@ export default function Carousel() {
       track.removeEventListener("touchstart", hold);
       track.removeEventListener("scroll", onScroll);
       if (timer) clearInterval(timer);
+      cancelGlide();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

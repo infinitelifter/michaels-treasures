@@ -171,24 +171,25 @@ export default function Home() {
                 Vintage watches have never been just about telling the time.
               </h2>
               <p className="body-copy about__body">
-                For me, they represent a broader appreciation for things that
-                are made well and built to last. Whether it&apos;s classic
-                tailoring, fine leather goods or a watch from the 1940s, they
-                all have something in common: craftsmanship, character and
-                timeless design.
+                For me, they are part of a wider appreciation for things that
+                are made well and built to last. Classic tailoring, fine
+                leather goods, good food and drink, and a watch from the 1940s
+                or 1950s all share something I value: thoughtful design,
+                craftsmanship and a sense of character that only becomes more
+                apparent with time.
               </p>
               <p className="body-copy about__body">
-                I don&apos;t believe the best watches are necessarily the
-                rarest or the most expensive. I look for pieces with honest
-                condition, beautiful proportions and originality, simply the
-                watches with character that deserve to be worn, not locked away
-                in a safe.
+                I have never believed that the most interesting watches are
+                necessarily the rarest or the most expensive. I look for
+                beautiful proportions, honest condition and originality. Most
+                importantly, I look for watches that feel right and were made
+                to be worn, rather than simply kept away in a safe.
               </p>
               <p className="body-copy about__body">
-                Every watch offered through {site.name} is personally selected,
-                carefully inspected and presented exactly as it is. I believe a
-                great vintage watch deserves to be worn and appreciated,
-                becoming part of its owner&apos;s story.
+                Every piece at {site.name} is chosen personally and presented
+                as it truly is. The aim is not to build the largest collection,
+                but a considered one: watches with something about them that
+                makes you want to put one on your wrist and keep wearing it.
               </p>
               <p className="about__sig">— {site.legalName}</p>
             </Reveal>
