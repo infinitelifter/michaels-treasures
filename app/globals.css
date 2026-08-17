@@ -620,7 +620,7 @@ img {
 }
 .selection__copy {
   flex: 1 1 460px;
-  min-width: 300px;
+  min-width: min(300px, 100%);
 }
 .selection__title {
   margin: 26px 0 0;
@@ -649,7 +649,7 @@ img {
 }
 .selection__photo {
   flex: 1 1 330px;
-  min-width: 280px;
+  min-width: min(280px, 100%);
 }
 .selection__frame {
   position: relative;
@@ -737,7 +737,7 @@ img {
 }
 .about__copy {
   flex: 1 1 480px;
-  min-width: 300px;
+  min-width: min(300px, 100%);
 }
 .about__title {
   margin: 26px 0 0;
@@ -761,7 +761,7 @@ img {
 }
 .about__photo {
   flex: 1 1 380px;
-  min-width: 300px;
+  min-width: min(300px, 100%);
   margin-top: 120px;
   margin-right: calc(-1 * clamp(24px, 6vw, 120px));
 }
@@ -846,7 +846,7 @@ img {
 .contact__form-col {
   flex: 1 1 480px;
   max-width: 560px;
-  min-width: 280px;
+  min-width: min(280px, 100%);
 }
 
 .form {
@@ -985,7 +985,7 @@ textarea.field__input {
 
 .contact__details {
   flex: 0 1 260px;
-  min-width: 220px;
+  min-width: min(220px, 100%);
   display: flex;
   flex-direction: column;
   gap: 26px;
@@ -1191,6 +1191,18 @@ textarea.field__input {
   .trust__cell:nth-child(-n + 3) {
     border-bottom: 1px solid var(--rule);
   }
+}
+
+@media (max-width: 360px) {
+  .nav__inner {
+    padding: 0 16px;
+    gap: 16px;
+  }
+}
+
+/* long unbreakable strings (email addresses) must wrap, not widen the page */
+a[href^="mailto:"] {
+  overflow-wrap: anywhere;
 }
 
 @media (prefers-reduced-motion: reduce) {
