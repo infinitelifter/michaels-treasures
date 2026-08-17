@@ -486,7 +486,7 @@ img {
 }
 .trust__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
 }
@@ -1058,6 +1058,16 @@ textarea.field__input {
 .footer__caps {
   text-transform: uppercase;
 }
+.footer__credit {
+  margin-top: 8px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.footer__inner a.footer__credit:hover {
+  color: var(--gold);
+}
 
 /* ---------- legal pages (privacy, terms) ---------- */
 
@@ -1118,7 +1128,7 @@ textarea.field__input {
 
 @media (max-width: 1080px) {
   .trust__grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .trust__cell:nth-child(2) {
     border-right: 0;
@@ -1158,6 +1168,28 @@ textarea.field__input {
   }
   .how__intro {
     grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 700px) {
+  /* on tall phone crops the dial sits below viewport centre — drop the
+     lockup so it lands on the dial (desktop is unaffected) */
+  .hero__content {
+    padding-top: 12vh;
+  }
+}
+
+@media (max-width: 480px) {
+  /* two columns don't fit the longest labels on small phones — stack */
+  .trust__grid {
+    grid-template-columns: 1fr;
+  }
+  .trust__cell {
+    border-right: 0;
+    padding: 26px 20px 24px;
+  }
+  .trust__cell:nth-child(-n + 3) {
+    border-bottom: 1px solid var(--rule);
   }
 }
 

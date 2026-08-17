@@ -275,6 +275,14 @@ export default function Home() {
           <div className="footer__brand">
             <span className="footer__wordmark">{site.name}</span>
             <span className="footer__caps">© 2026 {site.legalName}</span>
+            <a
+              className="footer__credit"
+              href="https://fullcanvas.cz"
+              target="_blank"
+              rel="noopener"
+            >
+              Created in collaboration with FullCanvas Digital
+            </a>
           </div>
           <nav className="footer__col footer__col--legal" aria-label="Legal">
             <a href="/privacy">Privacy Policy</a>
