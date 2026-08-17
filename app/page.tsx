@@ -112,7 +112,6 @@ export default function Home() {
                   sizes="(max-width: 700px) 100vw, 40vw"
                 />
               </figure>
-              <p className="selection__caption">Latest arrival · Prague</p>
             </Reveal>
           </div>
         </section>
@@ -173,10 +172,9 @@ export default function Home() {
               <p className="body-copy about__body">
                 For me, they are part of a wider appreciation for things that
                 are made well and built to last. Classic tailoring, fine
-                leather goods, good food and drink, and a watch from the 1940s
-                or 1950s all share something I value: thoughtful design,
-                craftsmanship and a sense of character that only becomes more
-                apparent with time.
+                leather goods and a watch from the 1940s or 1950s all share
+                something I value: thoughtful design, craftsmanship and a
+                sense of character that only becomes more apparent with time.
               </p>
               <p className="body-copy about__body">
                 I have never believed that the most interesting watches are

@@ -57,7 +57,7 @@ export const photos = {
   },
   selection: {
     src: "/images/selection.jpg",
-    alt: "Vintage open-face pocket watch with silver dial on a dark background",
+    alt: "Vintage gold chronograph on a burgundy leather strap, worn on the wrist in Prague",
   },
   about: {
     src: "/images/about.jpg",
