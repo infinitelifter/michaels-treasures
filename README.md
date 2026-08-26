@@ -1,4 +1,4 @@
-# Michael's Treasures — praguevintagewatches.com
+# Michael's Treasures — vintagewatchesprague.com
 
 Single-page site for Michael's Treasures, a vintage watch dealer in Prague,
 built with Next.js (App Router). Ported from the Claude Design project
@@ -29,15 +29,15 @@ npm run build     # production build
    photo attachments) via Resend from `app/api/contact/route.ts`. Photos are
    downscaled in the browser before upload, so requests stay under Vercel's
    ~4.5 MB body limit. To activate:
-   1. Create a Resend account under `michael@praguevintagewatches.com`.
-   2. In Resend, add the domain `praguevintagewatches.com` and set the DNS
+   1. Create a Resend account under `michael@vintagewatchesprague.com`.
+   2. In Resend, add the domain `vintagewatchesprague.com` and set the DNS
       records it shows you; wait for it to verify.
    3. Create an API key and set it as `RESEND_API_KEY` (see `.env.example`)
       in Vercel → Project → Settings → Environment Variables (and in
       `.env.local` for local testing).
    Until the key is set, submissions return an error and are logged
    server-side, not delivered.
-4. **Domain** — the canonical URL is `https://praguevintagewatches.com` in
+4. **Domain** — the canonical URL is `https://vintagewatchesprague.com` in
    `lib/site.ts`; change it there if the domain differs.
 
 ## SEO & AI visibility

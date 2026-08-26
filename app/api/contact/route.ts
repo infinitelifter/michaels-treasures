@@ -56,7 +56,7 @@ export async function POST(request: Request) {
 
   const { error } = await resend.emails.send({
     // The from address must be on the domain verified in Resend.
-    from: process.env.CONTACT_FROM ?? `Michael's Treasures <enquiry@praguevintagewatches.com>`,
+    from: process.env.CONTACT_FROM ?? `Michael's Treasures <enquiry@vintagewatchesprague.com>`,
     to: process.env.CONTACT_TO ?? site.email,
     replyTo: email,
     subject: `Website enquiry from ${name}`,
