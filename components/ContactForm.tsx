@@ -73,7 +73,7 @@ export default function ContactForm() {
     const data = new FormData(form);
 
     // honeypot — bots fill it, humans never see it
-    if (data.get("company")) return;
+    if (data.get("mt_extra")) return;
 
     const name = String(data.get("name") ?? "").trim();
     const email = String(data.get("email") ?? "").trim();
@@ -126,11 +126,14 @@ export default function ContactForm() {
 
   return (
     <form ref={formRef} className="form" onSubmit={submit} noValidate>
+      {/* honeypot: the field name must NOT be autofill-recognizable —
+          Chrome fills fields named "company"/"phone"/etc. and the submit
+          would be silently dropped for real users */}
       <div className="form__hp" aria-hidden="true">
-        <label htmlFor="mt-company">Company</label>
+        <label htmlFor="mt-extra">Do not fill in this field</label>
         <input
-          id="mt-company"
-          name="company"
+          id="mt-extra"
+          name="mt_extra"
           type="text"
           tabIndex={-1}
           autoComplete="off"

@@ -9,7 +9,7 @@ export async function POST(request: Request) {
   const data = await request.formData();
 
   // honeypot: silently accept so bots think they succeeded
-  if (data.get("company")) return NextResponse.json({ ok: true });
+  if (data.get("mt_extra")) return NextResponse.json({ ok: true });
 
   const name = String(data.get("name") ?? "").trim();
   const email = String(data.get("email") ?? "").trim();
