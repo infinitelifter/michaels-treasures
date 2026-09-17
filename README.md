@@ -29,7 +29,7 @@ npm run build     # production build
    photo attachments) via Resend from `app/api/contact/route.ts`. Photos are
    downscaled in the browser before upload, so requests stay under Vercel's
    ~4.5 MB body limit. To activate:
-   1. Create a Resend account under `michael.treasures1@gmail.com`.
+   1. Create a Resend account under `michaels.treasures1@gmail.com`.
    2. In Resend, add the domain `vintagewatchesprague.com` and set the DNS
       records it shows you; wait for it to verify.
    3. Create an API key and set it as `RESEND_API_KEY` (see `.env.example`)

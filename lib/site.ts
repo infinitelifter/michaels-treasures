@@ -11,7 +11,7 @@ export const site = {
   description:
     "Exceptional vintage watches from the 1940s–1950s, personally selected and photographed in Prague. Viewings by appointment. Worldwide insured shipping.",
   url: "https://vintagewatchesprague.com",
-  email: "michael.treasures1@gmail.com",
+  email: "michaels.treasures1@gmail.com",
   instagram: "https://instagram.com/michaels.treasures",
   instagramHandle: "@michaels.treasures",
   city: "Prague",
