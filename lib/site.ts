@@ -10,7 +10,7 @@ export const site = {
   tagline: "Exceptional Vintage Watches",
   description:
     "Exceptional vintage watches from the 1940s–1950s, personally selected and photographed in Prague. Viewings by appointment. Worldwide insured shipping.",
-  url: "https://vintagewatchesprague.com",
+  url: "https://www.vintagewatchesprague.com",
   email: "michaels.treasures1@gmail.com",
   instagram: "https://instagram.com/michaels.treasures",
   instagramHandle: "@michaels.treasures",

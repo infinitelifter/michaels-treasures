@@ -37,7 +37,7 @@ npm run build     # production build
       `.env.local` for local testing).
    Until the key is set, submissions return an error and are logged
    server-side, not delivered.
-4. **Domain** — the canonical URL is `https://vintagewatchesprague.com` in
+4. **Domain** — the canonical URL is `https://www.vintagewatchesprague.com` in
    `lib/site.ts`; change it there if the domain differs.
 
 ## SEO & AI visibility
